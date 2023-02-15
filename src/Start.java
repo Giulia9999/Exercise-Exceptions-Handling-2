@@ -11,12 +11,16 @@ public class Start {
                 int dividend = Integer.parseInt(reader.readLine());
                 System.out.print("Enter the divisor: ");
                 int divisor = Integer.parseInt(reader.readLine());
+                if (divisor == 0) {
+                    throw new ZeroException();
+                }
                 int division = dividend / divisor;
                 System.out.println(division);
-            } catch (IOException e) {
+            }catch(IOException e){
+                throw new RuntimeException();
+            } catch (ZeroException e) {
                 throw new RuntimeException(e);
             }
         }
-
     }
 }
